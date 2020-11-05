@@ -183,15 +183,64 @@ void detKeypointsHarris(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool
 
 void detKeypointsSIFT(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool bVis)
 {
-
+    
 }
 void detKeypointsFAST(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool bVis)
 {
+    // Features from accelerated segment test (FAST) "Published in 2006" is a corner detection method, 
+    // which could be used to extract feature points and later used to track and map objects in many computer vision tasks.
+    /* 
+     * Select a pixel p in the image which is to be identified as an interest point or not. Let its intensity be Ip.
+     * Select appropriate threshold value t.
+     * Consider a circle of 16 pixels around the pixel under test. (This is a Bresenham circle of radius 3.)
+     * Now the pixel p is a corner if there exists a set of n contiguous pixels in the circle (of 16 pixels) which are all brighter than Ip + t, or all darker than Ip - t. (The authors have used n= 12 in the first version of the algorithm)
+     * To make the algorithm fast, first compare the intensity of pixels 1, 5, 9 and 13 of the circle with Ip. As evident from the figure above, at least three of these four pixels should satisfy the threshold criterion so that the interest point will exist.
+     * If at least three of the four-pixel values — I1, I5, I9, I13 are not above or below Ip + t, then p is not an interest point (corner). In this case reject the pixel p as a possible interest point. Else if at least three of the pixels are above or below Ip + t, then check for all 16 pixels and check if 12 contiguous pixels fall in the criterion.
+     * Repeat the procedure for all the pixels in the image.
+     * 
+    */
+
+    // FAST detector
+    int threshold = 10;
+    bool nonMaxSuppression = true; 
+
+    double t = (double)cv::getTickCount();
+    cv::Ptr<cv::FeatureDetector> fastDetector = cv::FastFeatureDetector::create(threshold, nonMaxSuppression, cv::FastFeatureDetector::TYPE_9_16);
+    fastDetector->detect(img, keypoints);
+    t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
+    std::cout << "FAST with n = " << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << " ms" << std::endl;
+
+    // visualize results
+    if(bVis)
+    {
+    cv::Mat visImage = img.clone();
+    cv::drawKeypoints(img, keypoints, visImage, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
+    std::string windowName = "FAST Detector Results";
+    cv::namedWindow(windowName , cv::WINDOW_AUTOSIZE);
+    imshow(windowName, visImage);
+    cv::waitKey(0);
+    }
 
 }
 void detKeypointsBRISK(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool bVis)
 {
+    cv::Ptr<cv::FeatureDetector> detector = cv::BRISK::create();
 
+    double t = (double)cv::getTickCount();
+    detector->detect(img, keypoints);
+    t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
+    std::cout << "BRISK detector with n= " << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << " ms" << std::endl;
+
+    // visualize results
+    if(bVis)
+    {
+        cv::Mat visImage = img.clone();
+        cv::drawKeypoints(img, keypoints, visImage, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
+        std::string windowName = "BRISK Detector Results";
+        cv::namedWindow(windowName, 1);
+        imshow(windowName, visImage);
+        cv::waitKey(0);
+    }
 }
 
 

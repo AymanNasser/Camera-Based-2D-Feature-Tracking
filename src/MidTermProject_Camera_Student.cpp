@@ -76,7 +76,7 @@ int main(int argc, const char *argv[])
 
         // extract 2D keypoints from current image
         vector<cv::KeyPoint> keypoints; // create empty feature list for current image
-        string detectorType = "SIFT";
+        string detectorType = "BRISK";
         bool bDetectorVis = true;
 
         //// STUDENT ASSIGNMENT
@@ -112,10 +112,23 @@ int main(int argc, const char *argv[])
         // only keep keypoints on the preceding vehicle
         bool bFocusOnVehicle = true;
         cv::Rect vehicleRect(535, 180, 180, 150);
+        std::cout << "Keypoints size before bounding box removal: "<< keypoints.size() << std::endl;
         if (bFocusOnVehicle)
         {
-            // ...
+            for(auto it = keypoints.begin(); it != keypoints.end(); it++){
+
+                if(vehicleRect.contains(it->pt) && (it->size) <= vehicleRect.width) 
+                    continue;
+                keypoints.erase(it); // Huge time complexity: worst case (O(N^2))
+            } 
         }
+        std::cout << "Keypoints size after bounding box removal: "<< keypoints.size() << std::endl;
+        cv::Mat visImage = img.clone();
+        cv::drawKeypoints(img, keypoints, visImage, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
+        std::string windowName = "TEST";
+        cv::namedWindow(windowName, 6);
+        imshow(windowName, visImage);
+        cv::waitKey(0);
 
         //// EOF STUDENT ASSIGNMENT
 
@@ -168,10 +181,10 @@ int main(int argc, const char *argv[])
             //// TASK MP.5 -> add FLANN matching in file matching2D.cpp
             //// TASK MP.6 -> add KNN match selection and perform descriptor distance ratio filtering with t=0.8 in file matching2D.cpp
 
-            matchDescriptors((dataBuffer.end() - 2)->keypoints, (dataBuffer.end() - 1)->keypoints,
+            /* matchDescriptors((dataBuffer.end() - 2)->keypoints, (dataBuffer.end() - 1)->keypoints,
                              (dataBuffer.end() - 2)->descriptors, (dataBuffer.end() - 1)->descriptors,
                              matches, descriptorType, matcherType, selectorType);
-
+            */
             //// EOF STUDENT ASSIGNMENT
 
             // store matches in current data frame

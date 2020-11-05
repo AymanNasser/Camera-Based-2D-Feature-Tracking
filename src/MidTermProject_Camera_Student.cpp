@@ -66,6 +66,7 @@ int main(int argc, const char *argv[])
 
         if(dataBuffer.size() > dataBufferSize)
             dataBuffer.pop_back();
+        
         dataBuffer.push_front(frame);
 
         //// EOF STUDENT ASSIGNMENT
@@ -76,6 +77,7 @@ int main(int argc, const char *argv[])
         // extract 2D keypoints from current image
         vector<cv::KeyPoint> keypoints; // create empty feature list for current image
         string detectorType = "HARRIS";
+        bool bDetectorVis = true;
 
         //// STUDENT ASSIGNMENT
         //// TASK MP.2 -> add the following keypoint detectors in file matching2D.cpp and enable string-based selection based on detectorType
@@ -83,23 +85,23 @@ int main(int argc, const char *argv[])
 
         if (detectorType.compare("SHITOMASI") == 0)
         {
-            detKeypointsShiTomasi(keypoints, imgGray, false);
+            detKeypointsShiTomasi(keypoints, imgGray, bDetectorVis);
         }
-        else if(detectorType.compare("HARRIS"))
+        else if(detectorType.compare("HARRIS") == 0)
         {
-            detKeypointsHarris(keypoints, imgGray, false);
+            detKeypointsHarris(keypoints, imgGray, bDetectorVis);
         }
-        else if(detectorType.compare("FAST"))
+        else if(detectorType.compare("FAST") == 0)
         {
-            detKeypointsFAST(keypoints, imgGray, false);
+            detKeypointsFAST(keypoints, imgGray, bDetectorVis);
         }
-        else if(detectorType.compare("BRISK"))
+        else if(detectorType.compare("BRISK") == 0)
         {
-            detKeypointsBRISK(keypoints, imgGray, false);
+            detKeypointsBRISK(keypoints, imgGray, bDetectorVis);
         }
-        else if(detectorType.compare("SIFT"))
+        else if(detectorType.compare("SIFT") == 0)
         {
-            detKeypointsSIFT(keypoints, imgGray, false);
+            detKeypointsSIFT(keypoints, imgGray, bDetectorVis);
         }
 
         //// EOF STUDENT ASSIGNMENT
@@ -133,6 +135,7 @@ int main(int argc, const char *argv[])
 
         // push keypoints and descriptor for current frame to end of data buffer
         (dataBuffer.end() - 1)->keypoints = keypoints;
+        
         cout << "#2 : DETECT KEYPOINTS done" << endl;
 
         /* EXTRACT KEYPOINT DESCRIPTORS */
@@ -177,7 +180,7 @@ int main(int argc, const char *argv[])
             cout << "#4 : MATCH KEYPOINT DESCRIPTORS done" << endl;
 
             // visualize matches between current and previous image
-            bVis = true;
+            // bVis = true;
             if (bVis)
             {
                 cv::Mat matchImg = ((dataBuffer.end() - 1)->cameraImg).clone();
@@ -193,7 +196,7 @@ int main(int argc, const char *argv[])
                 cout << "Press key to continue to next image" << endl;
                 cv::waitKey(0); // wait for key to be pressed
             }
-            bVis = false;
+            // bVis = false;
         }
 
     } // eof loop over all images

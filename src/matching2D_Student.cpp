@@ -108,7 +108,6 @@ void detKeypointsShiTomasi(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, b
 
 void detKeypointsHarris(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool bVis)
 {
-    
     // Detector parameters
     int blockSize = 2;     // for every pixel, a blockSize × blockSize neighborhood is considered
     int apertureSize = 3;  // aperture parameter for Sobel operator (must be odd)
@@ -168,7 +167,7 @@ void detKeypointsHarris(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool
     }
 
     auto elapsedTime = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime);
-    std::cout << "Corner Harris KeyPoint Detection Took: " << elapsedTime.count() << " milliseconds" << std::endl;
+    std::cout << "Harris Corner KeyPoint Detection Took: " << elapsedTime.count() << " milliseconds" << std::endl;
 
     // visualize results
     if (bVis)

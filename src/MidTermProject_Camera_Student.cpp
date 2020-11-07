@@ -76,8 +76,8 @@ int main(int argc, const char *argv[])
 
         // extract 2D keypoints from current image
         vector<cv::KeyPoint> keypoints; // create empty feature list for current image
-        string detectorType = "BRISK";
-        bool bDetectorVis = true;
+        string detectorType = "SIFT";
+        bool bDetectorVis = false;
 
         //// STUDENT ASSIGNMENT
         //// TASK MP.2 -> add the following keypoint detectors in file matching2D.cpp and enable string-based selection based on detectorType
@@ -111,24 +111,26 @@ int main(int argc, const char *argv[])
 
         // only keep keypoints on the preceding vehicle
         bool bFocusOnVehicle = true;
+        vector<cv::KeyPoint> filteredKeypoints; // filtered keypoints after removing non preceeding vehicle keypoints 
         cv::Rect vehicleRect(535, 180, 180, 150);
         std::cout << "Keypoints size before bounding box removal: "<< keypoints.size() << std::endl;
         if (bFocusOnVehicle)
         {
             for(auto it = keypoints.begin(); it != keypoints.end(); it++){
-
+                // Checking if the specified rectangle contains the keypoint coordinates &&
+                // if the diameter of the keypoint not exceeding the width of vehicle
                 if(vehicleRect.contains(it->pt) && (it->size) <= vehicleRect.width) 
-                    continue;
-                keypoints.erase(it); // Huge time complexity: worst case (O(N^2))
+                    filteredKeypoints.push_back(*it);
             } 
         }
-        std::cout << "Keypoints size after bounding box removal: "<< keypoints.size() << std::endl;
+        /* std::cout << "Keypoints size after bounding box removal: "<< filteredKeypoints.size() << std::endl;
         cv::Mat visImage = img.clone();
-        cv::drawKeypoints(img, keypoints, visImage, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
+        cv::drawKeypoints(img, filteredKeypoints, visImage, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
         std::string windowName = "TEST";
         cv::namedWindow(windowName, 6);
         imshow(windowName, visImage);
         cv::waitKey(0);
+        */
 
         //// EOF STUDENT ASSIGNMENT
 
@@ -139,15 +141,16 @@ int main(int argc, const char *argv[])
             int maxKeypoints = 50;
 
             if (detectorType.compare("SHITOMASI") == 0)
-            { // there is no response info, so keep the first 50 as they are sorted in descending quality order
-                keypoints.erase(keypoints.begin() + maxKeypoints, keypoints.end());
+            { 
+                // there is no response info, so keep the first 50 as they are sorted in descending quality order
+                filteredKeypoints.erase(filteredKeypoints.begin() + maxKeypoints, filteredKeypoints.end());
             }
-            cv::KeyPointsFilter::retainBest(keypoints, maxKeypoints);
+            cv::KeyPointsFilter::retainBest(filteredKeypoints, maxKeypoints);
             cout << " NOTE: Keypoints have been limited!" << endl;
         }
 
         // push keypoints and descriptor for current frame to end of data buffer
-        (dataBuffer.end() - 1)->keypoints = keypoints;
+        (dataBuffer.end() - 1)->keypoints = filteredKeypoints;
         
         cout << "#2 : DETECT KEYPOINTS done" << endl;
 

@@ -27,7 +27,6 @@ namespace matdes_params // Matching descriptors parameters
     std::string SELECT_KNN = "SEL_KNN";
 }
 
-using namespace std;
 
 /* MAIN PROGRAM */
 int main(int argc, const char *argv[])
@@ -36,19 +35,19 @@ int main(int argc, const char *argv[])
     /* INIT VARIABLES AND DATA STRUCTURES */
 
     // data location
-    string dataPath = "../";
+    std::string dataPath = "../";
 
     // camera
-    string imgBasePath = dataPath + "images/";
-    string imgPrefix = "KITTI/2011_09_26/image_00/data/000000"; // left camera, color
-    string imgFileType = ".png";
+    std::string imgBasePath = dataPath + "images/";
+    std::string imgPrefix = "KITTI/2011_09_26/image_00/data/000000"; // left camera, color
+    std::string imgFileType = ".png";
     int imgStartIndex = 0; // first file index to load (assumes Lidar and camera names have identical naming convention)
-    int imgEndIndex = 9;   // last file index to load
+    int imgEndIndex = 1;   // last file index to load
     int imgFillWidth = 4;  // no. of digits which make up the file index (e.g. img-0001.png)
 
     // misc
     int dataBufferSize = 2;       // no. of images which are held in memory (ring buffer) at the same time
-    deque<DataFrame> dataBuffer; // list of data frames which are held in memory at the same time
+    std::deque<DataFrame> dataBuffer; // list of data frames which are held in memory at the same time
     bool bVis = true;            // visualize results
 
     /* MAIN LOOP OVER ALL IMAGES */
@@ -58,9 +57,9 @@ int main(int argc, const char *argv[])
         /* LOAD IMAGE INTO BUFFER */
 
         // assemble filenames for current index
-        ostringstream imgNumber;
-        imgNumber << setfill('0') << setw(imgFillWidth) << imgStartIndex + imgIndex;
-        string imgFullFilename = imgBasePath + imgPrefix + imgNumber.str() + imgFileType;
+        std::ostringstream imgNumber;
+        imgNumber << std::setfill('0') << std::setw(imgFillWidth) << imgStartIndex + imgIndex;
+        std::string imgFullFilename = imgBasePath + imgPrefix + imgNumber.str() + imgFileType;
 
         // load image from file and convert to grayscale
         cv::Mat img, imgGray;
@@ -75,18 +74,18 @@ int main(int argc, const char *argv[])
         frame.cameraImg = imgGray;
 
         if(dataBuffer.size() > dataBufferSize)
-            dataBuffer.pop_back();
+            dataBuffer.pop_front();
         
-        dataBuffer.push_front(frame);
+        dataBuffer.push_back(frame);
 
         //// EOF STUDENT ASSIGNMENT
-        cout << "#1 : LOAD IMAGE INTO BUFFER done" << endl;
+        std::cout << "#1 : LOAD IMAGE INTO BUFFER done" << std::endl;
 
         /* DETECT IMAGE KEYPOINTS */
 
         // extract 2D keypoints from current image
-        vector<cv::KeyPoint> keypoints; // create empty feature list for current image
-        string detectorType = "AKAZE";
+        std::vector<cv::KeyPoint> keypoints; // create empty feature list for current image
+        std::string detectorType = "AKAZE";
         bool bDetectorVis = false;
 
         //// STUDENT ASSIGNMENT
@@ -130,7 +129,7 @@ int main(int argc, const char *argv[])
 
         // only keep keypoints on the preceding vehicle
         bool bFocusOnVehicle = true;
-        vector<cv::KeyPoint> filteredKeypoints; // filtered keypoints after removing non preceeding vehicle keypoints 
+        std::vector<cv::KeyPoint> filteredKeypoints; // filtered keypoints after removing non preceeding vehicle keypoints 
         cv::Rect vehicleRect(535, 180, 180, 150);
         std::cout << "Keypoints size before bounding box removal: "<< keypoints.size() << std::endl;
         if (bFocusOnVehicle)
@@ -142,8 +141,10 @@ int main(int argc, const char *argv[])
                     filteredKeypoints.push_back(*it);
             } 
         }
-        /* std::cout << "Keypoints size after bounding box removal: "<< filteredKeypoints.size() << std::endl;
-        cv::Mat visImage = img.clone();
+
+        std::cout << "Keypoints size after bounding box removal: "<< filteredKeypoints.size() << std::endl;
+        
+        /* cv::Mat visImage = img.clone();
         cv::drawKeypoints(img, filteredKeypoints, visImage, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
         std::string windowName = "TEST";
         cv::namedWindow(windowName, 6);
@@ -165,13 +166,13 @@ int main(int argc, const char *argv[])
                 filteredKeypoints.erase(filteredKeypoints.begin() + maxKeypoints, filteredKeypoints.end());
             }
             cv::KeyPointsFilter::retainBest(filteredKeypoints, maxKeypoints);
-            cout << " NOTE: Keypoints have been limited!" << endl;
+            std::cout << "NOTE: Keypoints have been limited!" << std::endl;
         }
 
         // push keypoints and descriptor for current frame to end of data buffer
         (dataBuffer.end() - 1)->keypoints = filteredKeypoints;
         
-        cout << "#2 : DETECT KEYPOINTS done" << endl;
+        std::cout << "#2 : DETECT KEYPOINTS done" << std::endl;
 
         /* EXTRACT KEYPOINT DESCRIPTORS */
 
@@ -180,24 +181,24 @@ int main(int argc, const char *argv[])
         //// -> BRIEF, ORB, FREAK, AKAZE, SIFT
 
         cv::Mat descriptors;
-        string descriptorType = "AKAZE"; // BRIEF, ORB, FREAK, AKAZE, SIFT
+        std::string descriptorType = "AKAZE"; // BRIEF, ORB, FREAK, AKAZE, SIFT
         descKeypoints((dataBuffer.end() - 1)->keypoints, (dataBuffer.end() - 1)->cameraImg, descriptors, descriptorType);
         //// EOF STUDENT ASSIGNMENT
 
         // push descriptors for current frame to end of data buffer
         (dataBuffer.end() - 1)->descriptors = descriptors;
 
-        cout << "#3 : EXTRACT DESCRIPTORS done" << endl;
+        std::cout << "#3 : EXTRACT DESCRIPTORS done" << std::endl;
 
         if (dataBuffer.size() > 1) // wait until at least two images have been processed
         {
 
             /* MATCH KEYPOINT DESCRIPTORS */
 
-            vector<cv::DMatch> matches;
-            string matcherType = matdes_params::MATCHER_BF;         // MAT_BF, MAT_FLANN
-            string descriptorType = matdes_params::DESC_BINARY;     // DES_BINARY, DES_HOG
-            string selectorType = matdes_params::SELECT_NN;         // SEL_NN, SEL_KNN
+            std::vector<cv::DMatch> matches;
+            std::string matcherType = matdes_params::MATCHER_BF;         // MAT_BF, MAT_FLANN
+            std::string descriptorType = matdes_params::DESC_BINARY;     // DES_BINARY, DES_HOG
+            std::string selectorType = matdes_params::SELECT_KNN;         // SEL_NN, SEL_KNN
 
             //// STUDENT ASSIGNMENT
             //// TASK MP.5 -> add FLANN matching in file matching2D.cpp
@@ -212,7 +213,7 @@ int main(int argc, const char *argv[])
             // store matches in current data frame
             (dataBuffer.end() - 1)->kptMatches = matches;
 
-            cout << "#4 : MATCH KEYPOINT DESCRIPTORS done" << endl;
+            std::cout << "#4 : MATCH KEYPOINT DESCRIPTORS done" << std::endl;
 
             // visualize matches between current and previous image
             bVis = true;
@@ -223,16 +224,17 @@ int main(int argc, const char *argv[])
                                 (dataBuffer.end() - 1)->cameraImg, (dataBuffer.end() - 1)->keypoints,
                                 matches, matchImg,
                                 cv::Scalar::all(-1), cv::Scalar::all(-1),
-                                vector<char>(), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
+                                std::vector<char>(), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
 
-                string windowName = "Matching keypoints between two camera images";
+                std::string windowName = "Matching keypoints between two camera images";
                 cv::namedWindow(windowName, 7);
                 cv::imshow(windowName, matchImg);
-                cout << "Press key to continue to next image" << endl;
+                std::cout << "Press key to continue to next image" << std::endl;
                 cv::waitKey(0); // wait for key to be pressed
             }
             bVis = false;
         }
+        std::cout << "\n\n###################\n\n";
 
     } // eof loop over all images
 

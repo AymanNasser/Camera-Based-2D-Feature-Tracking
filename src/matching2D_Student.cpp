@@ -35,7 +35,11 @@ void matchDescriptors(std::vector<cv::KeyPoint> &kPtsSource, std::vector<cv::Key
     // perform matching task
     if (selectorType.compare("SEL_NN") == 0)
     { 
+        double t = (double)cv::getTickCount();
         matcher->match(descSource, descRef, matches); // Finds the best match for each descriptor in desc1
+        t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
+        std::cout << "(NN) with n=" << matches.size() << " matches in " << 1000 * t / 1.0 << " ms" << std::endl;
+
     }
     else if (selectorType.compare("SEL_KNN") == 0)
     { 
@@ -46,7 +50,7 @@ void matchDescriptors(std::vector<cv::KeyPoint> &kPtsSource, std::vector<cv::Key
         double t = (double)cv::getTickCount();
         matcher->knnMatch(descSource, descRef, knnMatches, k);
         t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
-        std::cout << " (KNN) with n=" << knnMatches.size() << " matches in " << 1000 * t / 1.0 << " ms" << std::endl;
+        std::cout << "(KNN) with n=" << knnMatches.size() << " matches in " << 1000 * t / 1.0 << " ms" << std::endl;
 
         // Filtering matches using descriptor distance ratio test
         for(auto it = knnMatches.begin(); it!= knnMatches.end(); ++it){
@@ -334,14 +338,14 @@ void detKeypointsORB(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool bV
     double t = (double)cv::getTickCount();
     detector->detect(img, keypoints);
     t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
-    std::cout << "BRISK detector with n= " << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << " ms" << std::endl;
+    std::cout << "ORB detector with n= " << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << " ms" << std::endl;
 
     // visualize results
     if(bVis)
     {
         cv::Mat visImage = img.clone();
         cv::drawKeypoints(img, keypoints, visImage, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
-        std::string windowName = "BRISK Detector Results";
+        std::string windowName = "ORB Detector Results";
         cv::namedWindow(windowName, 1);
         imshow(windowName, visImage);
         cv::waitKey(0);
@@ -355,14 +359,14 @@ void detKeypointsAKAZE(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool 
     double t = (double)cv::getTickCount();
     detector->detect(img, keypoints);
     t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
-    std::cout << "BRISK detector with n= " << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << " ms" << std::endl;
+    std::cout << "AKAZE detector with n= " << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << " ms" << std::endl;
 
     // visualize results
     if(bVis)
     {
         cv::Mat visImage = img.clone();
         cv::drawKeypoints(img, keypoints, visImage, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
-        std::string windowName = "BRISK Detector Results";
+        std::string windowName = "AKAZE Detector Results";
         cv::namedWindow(windowName, 1);
         imshow(windowName, visImage);
         cv::waitKey(0);

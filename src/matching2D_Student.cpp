@@ -276,5 +276,47 @@ void detKeypointsBRISK(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool 
     }
 }
 
+void detKeypointsORB(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool bVis)
+{
+    cv::Ptr<cv::FeatureDetector> detector = cv::ORB::create();
+    
+    double t = (double)cv::getTickCount();
+    detector->detect(img, keypoints);
+    t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
+    std::cout << "BRISK detector with n= " << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << " ms" << std::endl;
+
+    // visualize results
+    if(bVis)
+    {
+        cv::Mat visImage = img.clone();
+        cv::drawKeypoints(img, keypoints, visImage, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
+        std::string windowName = "BRISK Detector Results";
+        cv::namedWindow(windowName, 1);
+        imshow(windowName, visImage);
+        cv::waitKey(0);
+    }
+
+}
+void detKeypointsAKAZE(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool bVis)
+{
+    cv::Ptr<cv::FeatureDetector> detector = cv::AKAZE::create();
+    
+    double t = (double)cv::getTickCount();
+    detector->detect(img, keypoints);
+    t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
+    std::cout << "BRISK detector with n= " << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << " ms" << std::endl;
+
+    // visualize results
+    if(bVis)
+    {
+        cv::Mat visImage = img.clone();
+        cv::drawKeypoints(img, keypoints, visImage, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
+        std::string windowName = "BRISK Detector Results";
+        cv::namedWindow(windowName, 1);
+        imshow(windowName, visImage);
+        cv::waitKey(0);
+    }
+
+}
 
 

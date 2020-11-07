@@ -76,7 +76,7 @@ int main(int argc, const char *argv[])
 
         // extract 2D keypoints from current image
         vector<cv::KeyPoint> keypoints; // create empty feature list for current image
-        string detectorType = "SIFT";
+        string detectorType = "AKAZE";
         bool bDetectorVis = false;
 
         //// STUDENT ASSIGNMENT
@@ -103,6 +103,15 @@ int main(int argc, const char *argv[])
         {
             detKeypointsSIFT(keypoints, imgGray, bDetectorVis);
         }
+        else if(detectorType.compare("AKAZE") == 0)
+        {
+            detKeypointsAKAZE(keypoints, imgGray, bDetectorVis);
+        }
+        else if(detectorType.compare("ORB") == 0)
+        {
+            detKeypointsORB(keypoints, imgGray, bDetectorVis);
+        }
+        else{}
 
         //// EOF STUDENT ASSIGNMENT
 
@@ -123,14 +132,14 @@ int main(int argc, const char *argv[])
                     filteredKeypoints.push_back(*it);
             } 
         }
-        /* std::cout << "Keypoints size after bounding box removal: "<< filteredKeypoints.size() << std::endl;
+        std::cout << "Keypoints size after bounding box removal: "<< filteredKeypoints.size() << std::endl;
         cv::Mat visImage = img.clone();
         cv::drawKeypoints(img, filteredKeypoints, visImage, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
         std::string windowName = "TEST";
         cv::namedWindow(windowName, 6);
         imshow(windowName, visImage);
         cv::waitKey(0);
-        */
+       
 
         //// EOF STUDENT ASSIGNMENT
 

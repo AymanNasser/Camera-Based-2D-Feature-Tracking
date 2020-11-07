@@ -17,6 +17,16 @@
 #include "dataStructures.h"
 #include "matching2D.hpp"
 
+namespace matdes_params // Matching descriptors parameters 
+{
+    std::string MATCHER_BF = "MAT_BF";
+    std::string MATCHER_FLANN = "MAT_FLANN";
+    std::string DESC_BINARY = "DES_BIN";
+    std::string DESC_NOT_BINARY = "DES_NBIN";
+    std::string SELECT_NN = "SEL_NN";
+    std::string SELECT_KNN = "SEL_KNN";
+}
+
 using namespace std;
 
 /* MAIN PROGRAM */
@@ -39,7 +49,7 @@ int main(int argc, const char *argv[])
     // misc
     int dataBufferSize = 2;       // no. of images which are held in memory (ring buffer) at the same time
     deque<DataFrame> dataBuffer; // list of data frames which are held in memory at the same time
-    bool bVis = false;            // visualize results
+    bool bVis = true;            // visualize results
 
     /* MAIN LOOP OVER ALL IMAGES */
 
@@ -132,19 +142,19 @@ int main(int argc, const char *argv[])
                     filteredKeypoints.push_back(*it);
             } 
         }
-        std::cout << "Keypoints size after bounding box removal: "<< filteredKeypoints.size() << std::endl;
+        /* std::cout << "Keypoints size after bounding box removal: "<< filteredKeypoints.size() << std::endl;
         cv::Mat visImage = img.clone();
         cv::drawKeypoints(img, filteredKeypoints, visImage, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
         std::string windowName = "TEST";
         cv::namedWindow(windowName, 6);
         imshow(windowName, visImage);
-        cv::waitKey(0);
+        cv::waitKey(0); */
        
 
         //// EOF STUDENT ASSIGNMENT
 
         // optional : limit number of keypoints (helpful for debugging and learning)
-        bool bLimitKpts = false;
+        bool bLimitKpts = true;
         if (bLimitKpts)
         {
             int maxKeypoints = 50;
@@ -170,7 +180,7 @@ int main(int argc, const char *argv[])
         //// -> BRIEF, ORB, FREAK, AKAZE, SIFT
 
         cv::Mat descriptors;
-        string descriptorType = "BRISK"; // BRIEF, ORB, FREAK, AKAZE, SIFT
+        string descriptorType = "AKAZE"; // BRIEF, ORB, FREAK, AKAZE, SIFT
         descKeypoints((dataBuffer.end() - 1)->keypoints, (dataBuffer.end() - 1)->cameraImg, descriptors, descriptorType);
         //// EOF STUDENT ASSIGNMENT
 
@@ -185,18 +195,18 @@ int main(int argc, const char *argv[])
             /* MATCH KEYPOINT DESCRIPTORS */
 
             vector<cv::DMatch> matches;
-            string matcherType = "MAT_BF";        // MAT_BF, MAT_FLANN
-            string descriptorType = "DES_BINARY"; // DES_BINARY, DES_HOG
-            string selectorType = "SEL_NN";       // SEL_NN, SEL_KNN
+            string matcherType = matdes_params::MATCHER_BF;         // MAT_BF, MAT_FLANN
+            string descriptorType = matdes_params::DESC_BINARY;     // DES_BINARY, DES_HOG
+            string selectorType = matdes_params::SELECT_NN;         // SEL_NN, SEL_KNN
 
             //// STUDENT ASSIGNMENT
             //// TASK MP.5 -> add FLANN matching in file matching2D.cpp
             //// TASK MP.6 -> add KNN match selection and perform descriptor distance ratio filtering with t=0.8 in file matching2D.cpp
 
-            /* matchDescriptors((dataBuffer.end() - 2)->keypoints, (dataBuffer.end() - 1)->keypoints,
+            matchDescriptors((dataBuffer.end() - 2)->keypoints, (dataBuffer.end() - 1)->keypoints,
                              (dataBuffer.end() - 2)->descriptors, (dataBuffer.end() - 1)->descriptors,
                              matches, descriptorType, matcherType, selectorType);
-            */
+           
             //// EOF STUDENT ASSIGNMENT
 
             // store matches in current data frame
@@ -205,7 +215,7 @@ int main(int argc, const char *argv[])
             cout << "#4 : MATCH KEYPOINT DESCRIPTORS done" << endl;
 
             // visualize matches between current and previous image
-            // bVis = true;
+            bVis = true;
             if (bVis)
             {
                 cv::Mat matchImg = ((dataBuffer.end() - 1)->cameraImg).clone();
@@ -221,7 +231,7 @@ int main(int argc, const char *argv[])
                 cout << "Press key to continue to next image" << endl;
                 cv::waitKey(0); // wait for key to be pressed
             }
-            // bVis = false;
+            bVis = false;
         }
 
     } // eof loop over all images

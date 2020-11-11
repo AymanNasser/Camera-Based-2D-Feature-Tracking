@@ -6,6 +6,39 @@
 // The keypoint is characterized by the 2D position, scale (proportional to the diameter of the neighborhood that needs to be taken into account), 
 // orientation and some other parameters.
 
+void callDetector(cv::Mat &imgGray, std::string detectorType, std::vector<cv::KeyPoint> &keypoints, bool bDetectorVis)
+{
+    if (detectorType.compare("SHITOMASI") == 0)
+        {
+            detKeypointsShiTomasi(keypoints, imgGray, bDetectorVis);
+        }
+        else if(detectorType.compare("HARRIS") == 0)
+        {
+            detKeypointsHarris(keypoints, imgGray, bDetectorVis);
+        }
+        else if(detectorType.compare("FAST") == 0)
+        {
+            detKeypointsFAST(keypoints, imgGray, bDetectorVis);
+        }
+        else if(detectorType.compare("BRISK") == 0)
+        {
+            detKeypointsBRISK(keypoints, imgGray, bDetectorVis);
+        }
+        else if(detectorType.compare("SIFT") == 0)
+        {
+            detKeypointsSIFT(keypoints, imgGray, bDetectorVis);
+        }
+        else if(detectorType.compare("AKAZE") == 0)
+        {
+            detKeypointsAKAZE(keypoints, imgGray, bDetectorVis);
+        }
+        else if(detectorType.compare("ORB") == 0)
+        {
+            detKeypointsORB(keypoints, imgGray, bDetectorVis);
+        }
+        else{}
+
+}
 
 // Find best matches for keypoints in two camera images based on several matching methods
 void matchDescriptors(std::vector<cv::KeyPoint> &kPtsSource, std::vector<cv::KeyPoint> &kPtsRef, cv::Mat &descSource, cv::Mat &descRef,

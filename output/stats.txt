@@ -1,0 +1,328 @@
+1
+Shi-Tomasi detection with n=1370 keypoints in 32.285 ms
+BRISK descriptor extraction in 4.62592 ms
+Shi-Tomasi detection with n=1301 keypoints in 13.0109 ms
+BRISK descriptor extraction in 1.21126 ms
+(KNN) with n=50 matches in 0.155894 ms
+Keypoints removed = 10
+----------------
+2
+Shi-Tomasi detection with n=1370 keypoints in 14.8673 ms
+BRIEF descriptor extraction in 2.32884 ms
+Shi-Tomasi detection with n=1301 keypoints in 13.1624 ms
+BRIEF descriptor extraction in 0.858314 ms
+(KNN) with n=50 matches in 0.112718 ms
+Keypoints removed = 10
+----------------
+3
+Shi-Tomasi detection with n=1370 keypoints in 14.8057 ms
+ORB descriptor extraction in 3.17059 ms
+Shi-Tomasi detection with n=1301 keypoints in 13.6097 ms
+ORB descriptor extraction in 3.09631 ms
+(KNN) with n=50 matches in 0.103011 ms
+Keypoints removed = 9
+----------------
+4
+Shi-Tomasi detection with n=1370 keypoints in 14.8581 ms
+FREAK descriptor extraction in 36.8415 ms
+Shi-Tomasi detection with n=1301 keypoints in 12.6416 ms
+FREAK descriptor extraction in 33.6816 ms
+(KNN) with n=50 matches in 0.136583 ms
+Keypoints removed = 19
+----------------
+5
+Shi-Tomasi detection with n=1370 keypoints in 14.8266 ms
+terminate called after throwing an instance of 'cv::Exception'
+  what():  OpenCV(4.5.0-dev) /home/an/FOEASU-Linux/opencv-master/modules/features2d/src/kaze/AKAZEFeatures.cpp:1192: error: (-215:Assertion failed) 0 <= kpts[i].class_id && kpts[i].class_id < static_cast<int>(evolution_.size()) in function 'Compute_Descriptors'
+
+Aborted (core dumped)
+----------------
+6
+Shi-Tomasi detection with n=1370 keypoints in 16.6702 ms
+SIFT descriptor extraction in 22.7009 ms
+Shi-Tomasi detection with n=1301 keypoints in 11.0583 ms
+SIFT descriptor extraction in 16.7424 ms
+(KNN) with n=50 matches in 1.04401 ms
+Keypoints removed = 4
+----------------
+7
+Harris Corner KeyPoint Detection Took: 11 milliseconds
+BRISK descriptor extraction in 0.51341 ms
+Harris Corner KeyPoint Detection Took: 9 milliseconds
+BRISK descriptor extraction in 0.890254 ms
+(KNN) with n=17 matches in 0.084264 ms
+Keypoints removed = 6
+----------------
+8
+Harris Corner KeyPoint Detection Took: 11 milliseconds
+BRIEF descriptor extraction in 0.246731 ms
+Harris Corner KeyPoint Detection Took: 10 milliseconds
+BRIEF descriptor extraction in 0.749044 ms
+(KNN) with n=17 matches in 0.065932 ms
+Keypoints removed = 5
+----------------
+9
+Harris Corner KeyPoint Detection Took: 11 milliseconds
+ORB descriptor extraction in 3.25668 ms
+Harris Corner KeyPoint Detection Took: 10 milliseconds
+ORB descriptor extraction in 3.40911 ms
+(KNN) with n=17 matches in 0.060066 ms
+Keypoints removed = 6
+----------------
+10
+Harris Corner KeyPoint Detection Took: 11 milliseconds
+FREAK descriptor extraction in 37.2731 ms
+Harris Corner KeyPoint Detection Took: 10 milliseconds
+FREAK descriptor extraction in 34.2829 ms
+(KNN) with n=17 matches in 0.071136 ms
+Keypoints removed = 6
+----------------
+11
+Harris Corner KeyPoint Detection Took: 11 milliseconds
+terminate called after throwing an instance of 'cv::Exception'
+  what():  OpenCV(4.5.0-dev) /home/an/FOEASU-Linux/opencv-master/modules/features2d/src/kaze/AKAZEFeatures.cpp:1192: error: (-215:Assertion failed) 0 <= kpts[i].class_id && kpts[i].class_id < static_cast<int>(evolution_.size()) in function 'Compute_Descriptors'
+
+Aborted (core dumped)
+----------------
+12
+Harris Corner KeyPoint Detection Took: 20 milliseconds
+SIFT descriptor extraction in 19.3203 ms
+Harris Corner KeyPoint Detection Took: 8 milliseconds
+SIFT descriptor extraction in 16.732 ms
+(KNN) with n=17 matches in 0.050964 ms
+Keypoints removed = 3
+----------------
+13
+FAST with n = 5063 keypoints in 2.69557 ms
+BRISK descriptor extraction in 1.35374 ms
+FAST with n = 4952 keypoints in 2.75469 ms
+BRISK descriptor extraction in 1.2522 ms
+(KNN) with n=50 matches in 0.1679 ms
+Keypoints removed = 21
+----------------
+14
+FAST with n = 5063 keypoints in 2.35609 ms
+BRIEF descriptor extraction in 1.04692 ms
+FAST with n = 4952 keypoints in 2.2907 ms
+BRIEF descriptor extraction in 0.928448 ms
+(KNN) with n=50 matches in 0.093459 ms
+Keypoints removed = 20
+----------------
+15
+FAST with n = 5063 keypoints in 2.3026 ms
+ORB descriptor extraction in 3.41196 ms
+FAST with n = 4952 keypoints in 2.48484 ms
+ORB descriptor extraction in 3.28395 ms
+(KNN) with n=50 matches in 0.09129 ms
+Keypoints removed = 16
+----------------
+16
+FAST with n = 5063 keypoints in 2.29266 ms
+FREAK descriptor extraction in 40.4867 ms
+FAST with n = 4952 keypoints in 2.67866 ms
+FREAK descriptor extraction in 39.2707 ms
+(KNN) with n=50 matches in 0.12856 ms
+Keypoints removed = 25
+----------------
+17
+FAST with n = 5063 keypoints in 2.31115 ms
+terminate called after throwing an instance of 'cv::Exception'
+  what():  OpenCV(4.5.0-dev) /home/an/FOEASU-Linux/opencv-master/modules/features2d/src/kaze/AKAZEFeatures.cpp:1192: error: (-215:Assertion failed) 0 <= kpts[i].class_id && kpts[i].class_id < static_cast<int>(evolution_.size()) in function 'Compute_Descriptors'
+
+Aborted (core dumped)
+----------------
+18
+FAST with n = 5063 keypoints in 4.00321 ms
+SIFT descriptor extraction in 21.9121 ms
+FAST with n = 4952 keypoints in 1.75168 ms
+SIFT descriptor extraction in 18.8893 ms
+(KNN) with n=50 matches in 0.092862 ms
+Keypoints removed = 6
+----------------
+19
+BRISK detector with n= 2757 keypoints in 44.9821 ms
+BRISK descriptor extraction in 2.02372 ms
+BRISK detector with n= 2777 keypoints in 41.3083 ms
+BRISK descriptor extraction in 1.16055 ms
+(KNN) with n=50 matches in 0.150575 ms
+Keypoints removed = 22
+----------------
+20
+BRISK detector with n= 2757 keypoints in 51.4325 ms
+BRIEF descriptor extraction in 0.990083 ms
+BRISK detector with n= 2777 keypoints in 44.4876 ms
+BRIEF descriptor extraction in 0.312589 ms
+(KNN) with n=50 matches in 0.111113 ms
+Keypoints removed = 21
+----------------
+21
+BRISK detector with n= 2757 keypoints in 40.5991 ms
+ORB descriptor extraction in 11.8528 ms
+BRISK detector with n= 2777 keypoints in 39.7692 ms
+ORB descriptor extraction in 11.5535 ms
+(KNN) with n=50 matches in 0.088788 ms
+Keypoints removed = 32
+----------------
+22
+BRISK detector with n= 2757 keypoints in 40.6938 ms
+FREAK descriptor extraction in 36.724 ms
+BRISK detector with n= 2777 keypoints in 38.5326 ms
+FREAK descriptor extraction in 36.1527 ms
+(KNN) with n=47 matches in 0.138308 ms
+Keypoints removed = 20
+----------------
+23
+BRISK detector with n= 2757 keypoints in 40.2027 ms
+terminate called after throwing an instance of 'cv::Exception'
+  what():  OpenCV(4.5.0-dev) /home/an/FOEASU-Linux/opencv-master/modules/features2d/src/kaze/AKAZEFeatures.cpp:1192: error: (-215:Assertion failed) 0 <= kpts[i].class_id && kpts[i].class_id < static_cast<int>(evolution_.size()) in function 'Compute_Descriptors'
+
+Aborted (core dumped)
+----------------
+24
+BRISK detector with n= 2757 keypoints in 42.4159 ms
+SIFT descriptor extraction in 27.6086 ms
+BRISK detector with n= 2777 keypoints in 42.8876 ms
+SIFT descriptor extraction in 20.491 ms
+(KNN) with n=50 matches in 0.081258 ms
+Keypoints removed = 16
+----------------
+25
+ORB detector with n= 500 keypoints in 1399.15 ms
+BRISK descriptor extraction in 1.80014 ms
+ORB detector with n= 500 keypoints in 7.30294 ms
+BRISK descriptor extraction in 0.799695 ms
+(KNN) with n=50 matches in 0.148064 ms
+Keypoints removed = 17
+----------------
+26
+ORB detector with n= 500 keypoints in 75.2333 ms
+BRIEF descriptor extraction in 0.920294 ms
+ORB detector with n= 500 keypoints in 7.57841 ms
+BRIEF descriptor extraction in 0.321882 ms
+(KNN) with n=50 matches in 0.08889 ms
+Keypoints removed = 32
+----------------
+27
+ORB detector with n= 500 keypoints in 85.0578 ms
+ORB descriptor extraction in 10.8853 ms
+ORB detector with n= 500 keypoints in 7.23779 ms
+ORB descriptor extraction in 10.939 ms
+(KNN) with n=50 matches in 0.109938 ms
+Keypoints removed = 29
+----------------
+28
+ORB detector with n= 500 keypoints in 77.4062 ms
+FREAK descriptor extraction in 39.401 ms
+ORB detector with n= 500 keypoints in 7.95762 ms
+FREAK descriptor extraction in 40.5678 ms
+(KNN) with n=34 matches in 0.101098 ms
+Keypoints removed = 3
+----------------
+29
+ORB detector with n= 500 keypoints in 80.9422 ms
+terminate called after throwing an instance of 'cv::Exception'
+  what():  OpenCV(4.5.0-dev) /home/an/FOEASU-Linux/opencv-master/modules/features2d/src/kaze/AKAZEFeatures.cpp:1192: error: (-215:Assertion failed) 0 <= kpts[i].class_id && kpts[i].class_id < static_cast<int>(evolution_.size()) in function 'Compute_Descriptors'
+
+Aborted (core dumped)
+----------------
+30
+ORB detector with n= 500 keypoints in 79.6289 ms
+SIFT descriptor extraction in 34.6038 ms
+ORB detector with n= 500 keypoints in 10.7002 ms
+SIFT descriptor extraction in 34.3386 ms
+(KNN) with n=50 matches in 0.082227 ms
+Keypoints removed = 11
+----------------
+31
+AKAZE detector with n= 1351 keypoints in 86.375 ms
+BRISK descriptor extraction in 0.821513 ms
+AKAZE detector with n= 1327 keypoints in 58.7483 ms
+BRISK descriptor extraction in 0.741315 ms
+(KNN) with n=50 matches in 0.137144 ms
+Keypoints removed = 20
+----------------
+32
+AKAZE detector with n= 1351 keypoints in 70.6325 ms
+BRIEF descriptor extraction in 0.401479 ms
+AKAZE detector with n= 1327 keypoints in 56.8553 ms
+BRIEF descriptor extraction in 0.403878 ms
+(KNN) with n=50 matches in 0.080054 ms
+Keypoints removed = 16
+----------------
+33
+AKAZE detector with n= 1351 keypoints in 68.7305 ms
+ORB descriptor extraction in 8.11079 ms
+AKAZE detector with n= 1327 keypoints in 58.1224 ms
+ORB descriptor extraction in 7.99127 ms
+(KNN) with n=50 matches in 0.095391 ms
+Keypoints removed = 25
+----------------
+34
+AKAZE detector with n= 1351 keypoints in 68.4197 ms
+FREAK descriptor extraction in 34.2228 ms
+AKAZE detector with n= 1327 keypoints in 58.6271 ms
+FREAK descriptor extraction in 34.1205 ms
+(KNN) with n=50 matches in 0.121572 ms
+Keypoints removed = 20
+----------------
+35
+AKAZE detector with n= 1351 keypoints in 74.4498 ms
+AKAZE descriptor extraction in 46.8571 ms
+AKAZE detector with n= 1327 keypoints in 59.0463 ms
+AKAZE descriptor extraction in 49.1912 ms
+(KNN) with n=50 matches in 0.110819 ms
+Keypoints removed = 17
+----------------
+36
+AKAZE detector with n= 1351 keypoints in 68.6365 ms
+SIFT descriptor extraction in 17.192 ms
+AKAZE detector with n= 1327 keypoints in 54.0241 ms
+SIFT descriptor extraction in 17.1495 ms
+(KNN) with n=50 matches in 0.083386 ms
+Keypoints removed = 15
+----------------
+37
+SIFT detector with n= 1438 keypoints in 189.953 ms
+BRISK descriptor extraction in 0.724415 ms
+SIFT detector with n= 1371 keypoints in 86.5816 ms
+BRISK descriptor extraction in 0.743415 ms
+(KNN) with n=50 matches in 0.156242 ms
+Keypoints removed = 33
+----------------
+38
+SIFT detector with n= 1438 keypoints in 119.365 ms
+BRIEF descriptor extraction in 0.522818 ms
+SIFT detector with n= 1371 keypoints in 92.1828 ms
+BRIEF descriptor extraction in 0.565864 ms
+(KNN) with n=50 matches in 0.146689 ms
+Keypoints removed = 31
+----------------
+39
+SIFT detector with n= 1438 keypoints in 112.342 ms
+terminate called after throwing an instance of 'cv::Exception'
+  what():  OpenCV(4.5.0-dev) /home/an/FOEASU-Linux/opencv-master/modules/core/src/alloc.cpp:73: error: (-4:Insufficient memory) Failed to allocate 65763706112 bytes in function 'OutOfMemoryError'
+
+Aborted (core dumped)
+----------------
+40
+SIFT detector with n= 1438 keypoints in 144.015 ms
+FREAK descriptor extraction in 40.2199 ms
+SIFT detector with n= 1371 keypoints in 109.102 ms
+FREAK descriptor extraction in 33.998 ms
+(KNN) with n=50 matches in 1.68483 ms
+Keypoints removed = 33
+----------------
+41
+SIFT detector with n= 1438 keypoints in 125.767 ms
+terminate called after throwing an instance of 'cv::Exception'
+  what():  OpenCV(4.5.0-dev) /home/an/FOEASU-Linux/opencv-master/modules/features2d/src/kaze/AKAZEFeatures.cpp:1192: error: (-215:Assertion failed) 0 <= kpts[i].class_id && kpts[i].class_id < static_cast<int>(evolution_.size()) in function 'Compute_Descriptors'
+
+Aborted (core dumped)
+----------------
+42
+SIFT detector with n= 1438 keypoints in 119.946 ms
+SIFT descriptor extraction in 63.4152 ms
+SIFT detector with n= 1371 keypoints in 88.2391 ms
+SIFT descriptor extraction in 65.0601 ms
+(KNN) with n=50 matches in 0.100111 ms
+Keypoints removed = 13

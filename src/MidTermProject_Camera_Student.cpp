@@ -32,6 +32,20 @@ namespace matdes_params // Matching descriptors parameters
 int main(int argc, const char *argv[])
 {
 
+    std::string detectorType;
+    std::string descriptorType; 
+    
+    // Init vars for stats script
+    if(argc == 3)
+    {
+        detectorType = argv[1];
+        descriptorType = argv[2]; 
+    }
+    else if (argc == 1)
+    {
+        detectorType = "AKAZE";
+        descriptorType = "AKAZE"; 
+    }
     /* INIT VARIABLES AND DATA STRUCTURES */
 
     // data location
@@ -51,6 +65,7 @@ int main(int argc, const char *argv[])
     bool bVis = true;            // visualize results
 
     /* MAIN LOOP OVER ALL IMAGES */
+    double t_stats = (double)cv::getTickCount();
 
     for (size_t imgIndex = 0; imgIndex <= imgEndIndex - imgStartIndex; imgIndex++)
     {
@@ -79,49 +94,19 @@ int main(int argc, const char *argv[])
         dataBuffer.push_back(frame);
 
         //// EOF STUDENT ASSIGNMENT
-        std::cout << "#1 : LOAD IMAGE INTO BUFFER done" << std::endl;
+        //std::cout << "#1 : LOAD IMAGE INTO BUFFER done" << std::endl;
 
         /* DETECT IMAGE KEYPOINTS */
 
         // extract 2D keypoints from current image
         std::vector<cv::KeyPoint> keypoints; // create empty feature list for current image
-        std::string detectorType = "AKAZE";
         bool bDetectorVis = false;
 
         //// STUDENT ASSIGNMENT
         //// TASK MP.2 -> add the following keypoint detectors in file matching2D.cpp and enable string-based selection based on detectorType
         //// -> HARRIS, FAST, BRISK, ORB, AKAZE, SIFT
-
-        if (detectorType.compare("SHITOMASI") == 0)
-        {
-            detKeypointsShiTomasi(keypoints, imgGray, bDetectorVis);
-        }
-        else if(detectorType.compare("HARRIS") == 0)
-        {
-            detKeypointsHarris(keypoints, imgGray, bDetectorVis);
-        }
-        else if(detectorType.compare("FAST") == 0)
-        {
-            detKeypointsFAST(keypoints, imgGray, bDetectorVis);
-        }
-        else if(detectorType.compare("BRISK") == 0)
-        {
-            detKeypointsBRISK(keypoints, imgGray, bDetectorVis);
-        }
-        else if(detectorType.compare("SIFT") == 0)
-        {
-            detKeypointsSIFT(keypoints, imgGray, bDetectorVis);
-        }
-        else if(detectorType.compare("AKAZE") == 0)
-        {
-            detKeypointsAKAZE(keypoints, imgGray, bDetectorVis);
-        }
-        else if(detectorType.compare("ORB") == 0)
-        {
-            detKeypointsORB(keypoints, imgGray, bDetectorVis);
-        }
-        else{}
-
+        callDetector(imgGray, detectorType, keypoints, bDetectorVis);
+        
         //// EOF STUDENT ASSIGNMENT
 
         //// STUDENT ASSIGNMENT
@@ -131,7 +116,7 @@ int main(int argc, const char *argv[])
         bool bFocusOnVehicle = true;
         std::vector<cv::KeyPoint> filteredKeypoints; // filtered keypoints after removing non preceeding vehicle keypoints 
         cv::Rect vehicleRect(535, 180, 180, 150);
-        std::cout << "Keypoints size before bounding box removal: "<< keypoints.size() << std::endl;
+        //std::cout << "Keypoints size before bounding box removal: "<< keypoints.size() << std::endl;
         if (bFocusOnVehicle)
         {
             for(auto it = keypoints.begin(); it != keypoints.end(); it++){
@@ -142,7 +127,7 @@ int main(int argc, const char *argv[])
             } 
         }
 
-        std::cout << "Keypoints size after bounding box removal: "<< filteredKeypoints.size() << std::endl;
+        //std::cout << "Keypoints size after bounding box removal: "<< filteredKeypoints.size() << std::endl;
         
         /* cv::Mat visImage = img.clone();
         cv::drawKeypoints(img, filteredKeypoints, visImage, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
@@ -166,13 +151,13 @@ int main(int argc, const char *argv[])
                 filteredKeypoints.erase(filteredKeypoints.begin() + maxKeypoints, filteredKeypoints.end());
             }
             cv::KeyPointsFilter::retainBest(filteredKeypoints, maxKeypoints);
-            std::cout << "NOTE: Keypoints have been limited!" << std::endl;
+            //std::cout << "NOTE: Keypoints have been limited!" << std::endl;
         }
 
         // push keypoints and descriptor for current frame to end of data buffer
         (dataBuffer.end() - 1)->keypoints = filteredKeypoints;
         
-        std::cout << "#2 : DETECT KEYPOINTS done" << std::endl;
+        //std::cout << "#2 : DETECT KEYPOINTS done" << std::endl;
 
         /* EXTRACT KEYPOINT DESCRIPTORS */
 
@@ -181,14 +166,13 @@ int main(int argc, const char *argv[])
         //// -> BRIEF, ORB, FREAK, AKAZE, SIFT
 
         cv::Mat descriptors;
-        std::string descriptorType = "AKAZE"; // BRIEF, ORB, FREAK, AKAZE, SIFT
         descKeypoints((dataBuffer.end() - 1)->keypoints, (dataBuffer.end() - 1)->cameraImg, descriptors, descriptorType);
         //// EOF STUDENT ASSIGNMENT
 
         // push descriptors for current frame to end of data buffer
         (dataBuffer.end() - 1)->descriptors = descriptors;
 
-        std::cout << "#3 : EXTRACT DESCRIPTORS done" << std::endl;
+        //std::cout << "#3 : EXTRACT DESCRIPTORS done" << std::endl;
 
         if (dataBuffer.size() > 1) // wait until at least two images have been processed
         {
@@ -213,10 +197,10 @@ int main(int argc, const char *argv[])
             // store matches in current data frame
             (dataBuffer.end() - 1)->kptMatches = matches;
 
-            std::cout << "#4 : MATCH KEYPOINT DESCRIPTORS done" << std::endl;
+            //std::cout << "#4 : MATCH KEYPOINT DESCRIPTORS done" << std::endl;
 
             // visualize matches between current and previous image
-            bVis = true;
+            bVis = false;
             if (bVis)
             {
                 cv::Mat matchImg = ((dataBuffer.end() - 1)->cameraImg).clone();
@@ -229,12 +213,12 @@ int main(int argc, const char *argv[])
                 std::string windowName = "Matching keypoints between two camera images";
                 cv::namedWindow(windowName, 7);
                 cv::imshow(windowName, matchImg);
-                std::cout << "Press key to continue to next image" << std::endl;
+                //std::cout << "Press key to continue to next image" << std::endl;
                 cv::waitKey(0); // wait for key to be pressed
             }
             bVis = false;
         }
-        std::cout << "\n\n###################\n\n";
+       // std::cout << "\n\n###################\n\n";
 
     } // eof loop over all images
 

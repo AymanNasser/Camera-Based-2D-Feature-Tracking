@@ -39,6 +39,8 @@ See the classroom instruction and code comments for more details on each of thes
 Using stats script.py file to automate all the possible combination of detector and descriptor pairs.
 Using KNN approach with (k=2) and filtering ratio = 0.8
 
+***Matched descriptors are between first 2 frames***
+
 | Approach no. | Detector + Descriptor | Total Keypoints | Total Matches | Time(ms) |
 |------------- | ------------- | ------------- | ------------- | ------------- |
 | 1 | Shi-Tomasi + BRISK | 1370 | 84 | 172.205 ms |

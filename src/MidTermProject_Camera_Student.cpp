@@ -66,7 +66,6 @@ int main(int argc, const char *argv[])
 
     /* MAIN LOOP OVER ALL IMAGES */
     double t_stats = (double)cv::getTickCount();
-
     for (size_t imgIndex = 0; imgIndex <= imgEndIndex - imgStartIndex; imgIndex++)
     {
         /* LOAD IMAGE INTO BUFFER */
@@ -140,7 +139,7 @@ int main(int argc, const char *argv[])
         //// EOF STUDENT ASSIGNMENT
 
         // optional : limit number of keypoints (helpful for debugging and learning)
-        bool bLimitKpts = true;
+        bool bLimitKpts = false;
         if (bLimitKpts)
         {
             int maxKeypoints = 50;
@@ -196,7 +195,7 @@ int main(int argc, const char *argv[])
 
             // store matches in current data frame
             (dataBuffer.end() - 1)->kptMatches = matches;
-
+            std::cout << "No. of Key Point Matches= " << matches.size() << std::endl;
             //std::cout << "#4 : MATCH KEYPOINT DESCRIPTORS done" << std::endl;
 
             // visualize matches between current and previous image
@@ -221,6 +220,7 @@ int main(int argc, const char *argv[])
        // std::cout << "\n\n###################\n\n";
 
     } // eof loop over all images
-
+    t_stats = ((double)cv::getTickCount() - t_stats) / cv::getTickFrequency();
+    std::cout<< "Total Time=" << 1000 * t_stats / 1.0 << " ms" << std::endl;
     return 0;
 }

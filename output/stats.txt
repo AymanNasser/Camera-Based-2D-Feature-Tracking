@@ -1,328 +1,398 @@
 1
-Shi-Tomasi detection with n=1370 keypoints in 32.285 ms
-BRISK descriptor extraction in 4.62592 ms
-Shi-Tomasi detection with n=1301 keypoints in 13.0109 ms
-BRISK descriptor extraction in 1.21126 ms
-(KNN) with n=50 matches in 0.155894 ms
-Keypoints removed = 10
+Shi-Tomasi detection with n=1370 keypoints in 42.3642 ms
+BRISK descriptor extraction in 4.40379 ms
+Shi-Tomasi detection with n=1301 keypoints in 14.2046 ms
+BRISK descriptor extraction in 2.04596 ms
+(KNN) with n=125 matches in 1.47017 ms
+Keypoints removed = 41
+No. of Key Point Matches= 84
+Total Time=172.205 ms
 ----------------
 2
-Shi-Tomasi detection with n=1370 keypoints in 14.8673 ms
-BRIEF descriptor extraction in 2.32884 ms
-Shi-Tomasi detection with n=1301 keypoints in 13.1624 ms
-BRIEF descriptor extraction in 0.858314 ms
-(KNN) with n=50 matches in 0.112718 ms
-Keypoints removed = 10
+Shi-Tomasi detection with n=1370 keypoints in 15.6586 ms
+BRIEF descriptor extraction in 2.17359 ms
+Shi-Tomasi detection with n=1301 keypoints in 13.5603 ms
+BRIEF descriptor extraction in 1.16486 ms
+(KNN) with n=125 matches in 0.382799 ms
+Keypoints removed = 29
+No. of Key Point Matches= 96
+Total Time=45.8341 ms
 ----------------
 3
-Shi-Tomasi detection with n=1370 keypoints in 14.8057 ms
-ORB descriptor extraction in 3.17059 ms
-Shi-Tomasi detection with n=1301 keypoints in 13.6097 ms
-ORB descriptor extraction in 3.09631 ms
-(KNN) with n=50 matches in 0.103011 ms
-Keypoints removed = 9
+Shi-Tomasi detection with n=1370 keypoints in 15.4812 ms
+ORB descriptor extraction in 3.46782 ms
+Shi-Tomasi detection with n=1301 keypoints in 14.3511 ms
+ORB descriptor extraction in 3.2862 ms
+(KNN) with n=125 matches in 0.320845 ms
+Keypoints removed = 38
+No. of Key Point Matches= 87
+Total Time=49.5279 ms
 ----------------
 4
-Shi-Tomasi detection with n=1370 keypoints in 14.8581 ms
-FREAK descriptor extraction in 36.8415 ms
-Shi-Tomasi detection with n=1301 keypoints in 12.6416 ms
-FREAK descriptor extraction in 33.6816 ms
-(KNN) with n=50 matches in 0.136583 ms
-Keypoints removed = 19
+Shi-Tomasi detection with n=1370 keypoints in 15.7172 ms
+FREAK descriptor extraction in 39.1033 ms
+Shi-Tomasi detection with n=1301 keypoints in 13.2567 ms
+FREAK descriptor extraction in 35.6404 ms
+(KNN) with n=125 matches in 0.817869 ms
+Keypoints removed = 57
+No. of Key Point Matches= 68
+Total Time=116.639 ms
 ----------------
 5
-Shi-Tomasi detection with n=1370 keypoints in 14.8266 ms
+Shi-Tomasi detection with n=1370 keypoints in 19.205 ms
 terminate called after throwing an instance of 'cv::Exception'
   what():  OpenCV(4.5.0-dev) /home/an/FOEASU-Linux/opencv-master/modules/features2d/src/kaze/AKAZEFeatures.cpp:1192: error: (-215:Assertion failed) 0 <= kpts[i].class_id && kpts[i].class_id < static_cast<int>(evolution_.size()) in function 'Compute_Descriptors'
 
 Aborted (core dumped)
 ----------------
 6
-Shi-Tomasi detection with n=1370 keypoints in 16.6702 ms
-SIFT descriptor extraction in 22.7009 ms
-Shi-Tomasi detection with n=1301 keypoints in 11.0583 ms
-SIFT descriptor extraction in 16.7424 ms
-(KNN) with n=50 matches in 1.04401 ms
-Keypoints removed = 4
+Shi-Tomasi detection with n=1370 keypoints in 16.0249 ms
+SIFT descriptor extraction in 27.9473 ms
+Shi-Tomasi detection with n=1301 keypoints in 12.6748 ms
+SIFT descriptor extraction in 20.4488 ms
+(KNN) with n=125 matches in 0.285708 ms
+Keypoints removed = 13
+No. of Key Point Matches= 112
+Total Time=89.8264 ms
 ----------------
 7
+Harris Corner KeyPoint Detection Took: 13 milliseconds
+BRISK descriptor extraction in 0.713387 ms
 Harris Corner KeyPoint Detection Took: 11 milliseconds
-BRISK descriptor extraction in 0.51341 ms
-Harris Corner KeyPoint Detection Took: 9 milliseconds
-BRISK descriptor extraction in 0.890254 ms
-(KNN) with n=17 matches in 0.084264 ms
+BRISK descriptor extraction in 1.08027 ms
+(KNN) with n=17 matches in 0.084009 ms
 Keypoints removed = 6
+No. of Key Point Matches= 11
+Total Time=131.395 ms
 ----------------
 8
-Harris Corner KeyPoint Detection Took: 11 milliseconds
-BRIEF descriptor extraction in 0.246731 ms
-Harris Corner KeyPoint Detection Took: 10 milliseconds
-BRIEF descriptor extraction in 0.749044 ms
-(KNN) with n=17 matches in 0.065932 ms
+Harris Corner KeyPoint Detection Took: 15 milliseconds
+BRIEF descriptor extraction in 0.602779 ms
+Harris Corner KeyPoint Detection Took: 18 milliseconds
+BRIEF descriptor extraction in 1.25077 ms
+(KNN) with n=17 matches in 0.104188 ms
 Keypoints removed = 5
+No. of Key Point Matches= 12
+Total Time=65.9843 ms
 ----------------
 9
-Harris Corner KeyPoint Detection Took: 11 milliseconds
-ORB descriptor extraction in 3.25668 ms
-Harris Corner KeyPoint Detection Took: 10 milliseconds
-ORB descriptor extraction in 3.40911 ms
-(KNN) with n=17 matches in 0.060066 ms
+Harris Corner KeyPoint Detection Took: 13 milliseconds
+ORB descriptor extraction in 4.14049 ms
+Harris Corner KeyPoint Detection Took: 12 milliseconds
+ORB descriptor extraction in 3.27231 ms
+(KNN) with n=17 matches in 0.058147 ms
 Keypoints removed = 6
+No. of Key Point Matches= 11
+Total Time=54.3331 ms
 ----------------
 10
+Harris Corner KeyPoint Detection Took: 14 milliseconds
+FREAK descriptor extraction in 40.2424 ms
 Harris Corner KeyPoint Detection Took: 11 milliseconds
-FREAK descriptor extraction in 37.2731 ms
-Harris Corner KeyPoint Detection Took: 10 milliseconds
-FREAK descriptor extraction in 34.2829 ms
-(KNN) with n=17 matches in 0.071136 ms
+FREAK descriptor extraction in 36.955 ms
+(KNN) with n=17 matches in 0.068875 ms
 Keypoints removed = 6
+No. of Key Point Matches= 11
+Total Time=123.433 ms
 ----------------
 11
-Harris Corner KeyPoint Detection Took: 11 milliseconds
+Harris Corner KeyPoint Detection Took: 12 milliseconds
 terminate called after throwing an instance of 'cv::Exception'
   what():  OpenCV(4.5.0-dev) /home/an/FOEASU-Linux/opencv-master/modules/features2d/src/kaze/AKAZEFeatures.cpp:1192: error: (-215:Assertion failed) 0 <= kpts[i].class_id && kpts[i].class_id < static_cast<int>(evolution_.size()) in function 'Compute_Descriptors'
 
 Aborted (core dumped)
 ----------------
 12
-Harris Corner KeyPoint Detection Took: 20 milliseconds
-SIFT descriptor extraction in 19.3203 ms
-Harris Corner KeyPoint Detection Took: 8 milliseconds
-SIFT descriptor extraction in 16.732 ms
-(KNN) with n=17 matches in 0.050964 ms
+Harris Corner KeyPoint Detection Took: 18 milliseconds
+SIFT descriptor extraction in 20.9702 ms
+Harris Corner KeyPoint Detection Took: 9 milliseconds
+SIFT descriptor extraction in 18.1807 ms
+(KNN) with n=17 matches in 0.054252 ms
 Keypoints removed = 3
+No. of Key Point Matches= 14
+Total Time=91.2395 ms
 ----------------
 13
-FAST with n = 5063 keypoints in 2.69557 ms
-BRISK descriptor extraction in 1.35374 ms
-FAST with n = 4952 keypoints in 2.75469 ms
-BRISK descriptor extraction in 1.2522 ms
-(KNN) with n=50 matches in 0.1679 ms
-Keypoints removed = 21
+FAST with n = 5063 keypoints in 2.84146 ms
+BRISK descriptor extraction in 7.65475 ms
+FAST with n = 4952 keypoints in 2.85663 ms
+BRISK descriptor extraction in 7.22857 ms
+(KNN) with n=419 matches in 6.36106 ms
+Keypoints removed = 206
+No. of Key Point Matches= 213
+Total Time=153.694 ms
 ----------------
 14
-FAST with n = 5063 keypoints in 2.35609 ms
-BRIEF descriptor extraction in 1.04692 ms
-FAST with n = 4952 keypoints in 2.2907 ms
-BRIEF descriptor extraction in 0.928448 ms
-(KNN) with n=50 matches in 0.093459 ms
-Keypoints removed = 20
+FAST with n = 5063 keypoints in 2.81541 ms
+BRIEF descriptor extraction in 3.55146 ms
+FAST with n = 4952 keypoints in 2.68604 ms
+BRIEF descriptor extraction in 3.31096 ms
+(KNN) with n=419 matches in 4.54851 ms
+Keypoints removed = 190
+No. of Key Point Matches= 229
+Total Time=32.8021 ms
 ----------------
 15
-FAST with n = 5063 keypoints in 2.3026 ms
-ORB descriptor extraction in 3.41196 ms
-FAST with n = 4952 keypoints in 2.48484 ms
-ORB descriptor extraction in 3.28395 ms
-(KNN) with n=50 matches in 0.09129 ms
-Keypoints removed = 16
+FAST with n = 5063 keypoints in 2.70758 ms
+ORB descriptor extraction in 5.82809 ms
+FAST with n = 4952 keypoints in 2.61993 ms
+ORB descriptor extraction in 4.50696 ms
+(KNN) with n=419 matches in 2.4597 ms
+Keypoints removed = 201
+No. of Key Point Matches= 218
+Total Time=31.1273 ms
 ----------------
 16
-FAST with n = 5063 keypoints in 2.29266 ms
-FREAK descriptor extraction in 40.4867 ms
-FAST with n = 4952 keypoints in 2.67866 ms
-FREAK descriptor extraction in 39.2707 ms
-(KNN) with n=50 matches in 0.12856 ms
-Keypoints removed = 25
+FAST with n = 5063 keypoints in 2.42057 ms
+FREAK descriptor extraction in 40.3999 ms
+FAST with n = 4952 keypoints in 2.80832 ms
+FREAK descriptor extraction in 40.4319 ms
+(KNN) with n=419 matches in 4.73633 ms
+Keypoints removed = 244
+No. of Key Point Matches= 175
+Total Time=103.744 ms
 ----------------
 17
-FAST with n = 5063 keypoints in 2.31115 ms
+FAST with n = 5063 keypoints in 2.37381 ms
 terminate called after throwing an instance of 'cv::Exception'
   what():  OpenCV(4.5.0-dev) /home/an/FOEASU-Linux/opencv-master/modules/features2d/src/kaze/AKAZEFeatures.cpp:1192: error: (-215:Assertion failed) 0 <= kpts[i].class_id && kpts[i].class_id < static_cast<int>(evolution_.size()) in function 'Compute_Descriptors'
 
 Aborted (core dumped)
 ----------------
 18
-FAST with n = 5063 keypoints in 4.00321 ms
-SIFT descriptor extraction in 21.9121 ms
-FAST with n = 4952 keypoints in 1.75168 ms
-SIFT descriptor extraction in 18.8893 ms
-(KNN) with n=50 matches in 0.092862 ms
-Keypoints removed = 6
+FAST with n = 5063 keypoints in 2.92722 ms
+SIFT descriptor extraction in 49.7079 ms
+FAST with n = 4952 keypoints in 2.76729 ms
+SIFT descriptor extraction in 46.1099 ms
+(KNN) with n=419 matches in 4.5339 ms
+Keypoints removed = 103
+No. of Key Point Matches= 316
+Total Time=124.13 ms
 ----------------
 19
-BRISK detector with n= 2757 keypoints in 44.9821 ms
-BRISK descriptor extraction in 2.02372 ms
-BRISK detector with n= 2777 keypoints in 41.3083 ms
-BRISK descriptor extraction in 1.16055 ms
-(KNN) with n=50 matches in 0.150575 ms
-Keypoints removed = 22
+BRISK detector with n= 2757 keypoints in 70.0266 ms
+BRISK descriptor extraction in 14.8087 ms
+BRISK detector with n= 2777 keypoints in 42.0358 ms
+BRISK descriptor extraction in 3.1569 ms
+(KNN) with n=264 matches in 2.6197 ms
+Keypoints removed = 126
+No. of Key Point Matches= 138
+Total Time=288.656 ms
 ----------------
 20
-BRISK detector with n= 2757 keypoints in 51.4325 ms
-BRIEF descriptor extraction in 0.990083 ms
-BRISK detector with n= 2777 keypoints in 44.4876 ms
-BRIEF descriptor extraction in 0.312589 ms
-(KNN) with n=50 matches in 0.111113 ms
-Keypoints removed = 21
+BRISK detector with n= 2757 keypoints in 46.9605 ms
+BRIEF descriptor extraction in 1.48439 ms
+BRISK detector with n= 2777 keypoints in 41.1284 ms
+BRIEF descriptor extraction in 1.04057 ms
+(KNN) with n=264 matches in 1.04501 ms
+Keypoints removed = 126
+No. of Key Point Matches= 138
+Total Time=171.691 ms
 ----------------
 21
-BRISK detector with n= 2757 keypoints in 40.5991 ms
-ORB descriptor extraction in 11.8528 ms
-BRISK detector with n= 2777 keypoints in 39.7692 ms
-ORB descriptor extraction in 11.5535 ms
-(KNN) with n=50 matches in 0.088788 ms
-Keypoints removed = 32
+BRISK detector with n= 2757 keypoints in 46.2368 ms
+ORB descriptor extraction in 13.7047 ms
+BRISK detector with n= 2777 keypoints in 42.3956 ms
+ORB descriptor extraction in 12.3913 ms
+(KNN) with n=264 matches in 2.66109 ms
+Keypoints removed = 167
+No. of Key Point Matches= 97
+Total Time=196.509 ms
 ----------------
 22
-BRISK detector with n= 2757 keypoints in 40.6938 ms
-FREAK descriptor extraction in 36.724 ms
-BRISK detector with n= 2777 keypoints in 38.5326 ms
-FREAK descriptor extraction in 36.1527 ms
-(KNN) with n=47 matches in 0.138308 ms
-Keypoints removed = 20
+BRISK detector with n= 2757 keypoints in 43.1238 ms
+FREAK descriptor extraction in 39.7499 ms
+BRISK detector with n= 2777 keypoints in 41.858 ms
+FREAK descriptor extraction in 42.3074 ms
+(KNN) with n=242 matches in 1.74937 ms
+Keypoints removed = 130
+No. of Key Point Matches= 112
+Total Time=248.02 ms
 ----------------
 23
-BRISK detector with n= 2757 keypoints in 40.2027 ms
+BRISK detector with n= 2757 keypoints in 43.5479 ms
 terminate called after throwing an instance of 'cv::Exception'
   what():  OpenCV(4.5.0-dev) /home/an/FOEASU-Linux/opencv-master/modules/features2d/src/kaze/AKAZEFeatures.cpp:1192: error: (-215:Assertion failed) 0 <= kpts[i].class_id && kpts[i].class_id < static_cast<int>(evolution_.size()) in function 'Compute_Descriptors'
 
 Aborted (core dumped)
 ----------------
 24
-BRISK detector with n= 2757 keypoints in 42.4159 ms
-SIFT descriptor extraction in 27.6086 ms
-BRISK detector with n= 2777 keypoints in 42.8876 ms
-SIFT descriptor extraction in 20.491 ms
-(KNN) with n=50 matches in 0.081258 ms
-Keypoints removed = 16
+BRISK detector with n= 2757 keypoints in 47.9016 ms
+SIFT descriptor extraction in 41.5583 ms
+BRISK detector with n= 2777 keypoints in 42.6003 ms
+SIFT descriptor extraction in 33.3477 ms
+(KNN) with n=264 matches in 0.905361 ms
+Keypoints removed = 82
+No. of Key Point Matches= 182
+Total Time=276.875 ms
 ----------------
 25
-ORB detector with n= 500 keypoints in 1399.15 ms
-BRISK descriptor extraction in 1.80014 ms
-ORB detector with n= 500 keypoints in 7.30294 ms
-BRISK descriptor extraction in 0.799695 ms
-(KNN) with n=50 matches in 0.148064 ms
-Keypoints removed = 17
+ORB detector with n= 500 keypoints in 1156.56 ms
+BRISK descriptor extraction in 1.79 ms
+ORB detector with n= 500 keypoints in 7.97257 ms
+BRISK descriptor extraction in 1.3939 ms
+(KNN) with n=83 matches in 0.261555 ms
+Keypoints removed = 23
+No. of Key Point Matches= 60
+Total Time=1250.05 ms
 ----------------
 26
-ORB detector with n= 500 keypoints in 75.2333 ms
-BRIEF descriptor extraction in 0.920294 ms
-ORB detector with n= 500 keypoints in 7.57841 ms
-BRIEF descriptor extraction in 0.321882 ms
-(KNN) with n=50 matches in 0.08889 ms
-Keypoints removed = 32
+ORB detector with n= 500 keypoints in 83.2616 ms
+BRIEF descriptor extraction in 1.06915 ms
+ORB detector with n= 500 keypoints in 8.30748 ms
+BRIEF descriptor extraction in 0.590118 ms
+(KNN) with n=92 matches in 0.180595 ms
+Keypoints removed = 55
+No. of Key Point Matches= 37
+Total Time=105.007 ms
 ----------------
 27
-ORB detector with n= 500 keypoints in 85.0578 ms
-ORB descriptor extraction in 10.8853 ms
-ORB detector with n= 500 keypoints in 7.23779 ms
-ORB descriptor extraction in 10.939 ms
-(KNN) with n=50 matches in 0.109938 ms
-Keypoints removed = 29
+ORB detector with n= 500 keypoints in 80.3106 ms
+ORB descriptor extraction in 12.6935 ms
+ORB detector with n= 500 keypoints in 8.4049 ms
+ORB descriptor extraction in 12.5362 ms
+(KNN) with n=92 matches in 0.218101 ms
+Keypoints removed = 52
+No. of Key Point Matches= 40
+Total Time=126.089 ms
 ----------------
 28
-ORB detector with n= 500 keypoints in 77.4062 ms
-FREAK descriptor extraction in 39.401 ms
-ORB detector with n= 500 keypoints in 7.95762 ms
-FREAK descriptor extraction in 40.5678 ms
-(KNN) with n=34 matches in 0.101098 ms
-Keypoints removed = 3
+ORB detector with n= 500 keypoints in 85.8789 ms
+FREAK descriptor extraction in 38.3928 ms
+ORB detector with n= 500 keypoints in 8.25351 ms
+FREAK descriptor extraction in 36.9184 ms
+(KNN) with n=46 matches in 0.113342 ms
+Keypoints removed = 7
+No. of Key Point Matches= 39
+Total Time=181.769 ms
 ----------------
 29
-ORB detector with n= 500 keypoints in 80.9422 ms
+ORB detector with n= 500 keypoints in 79.4033 ms
 terminate called after throwing an instance of 'cv::Exception'
   what():  OpenCV(4.5.0-dev) /home/an/FOEASU-Linux/opencv-master/modules/features2d/src/kaze/AKAZEFeatures.cpp:1192: error: (-215:Assertion failed) 0 <= kpts[i].class_id && kpts[i].class_id < static_cast<int>(evolution_.size()) in function 'Compute_Descriptors'
 
 Aborted (core dumped)
 ----------------
 30
-ORB detector with n= 500 keypoints in 79.6289 ms
-SIFT descriptor extraction in 34.6038 ms
-ORB detector with n= 500 keypoints in 10.7002 ms
-SIFT descriptor extraction in 34.3386 ms
-(KNN) with n=50 matches in 0.082227 ms
-Keypoints removed = 11
+ORB detector with n= 500 keypoints in 95.0943 ms
+SIFT descriptor extraction in 40.3945 ms
+ORB detector with n= 500 keypoints in 7.11247 ms
+SIFT descriptor extraction in 33.807 ms
+(KNN) with n=92 matches in 0.153987 ms
+Keypoints removed = 25
+No. of Key Point Matches= 67
+Total Time=190.433 ms
 ----------------
 31
-AKAZE detector with n= 1351 keypoints in 86.375 ms
-BRISK descriptor extraction in 0.821513 ms
-AKAZE detector with n= 1327 keypoints in 58.7483 ms
-BRISK descriptor extraction in 0.741315 ms
-(KNN) with n=50 matches in 0.137144 ms
-Keypoints removed = 20
+AKAZE detector with n= 1351 keypoints in 84.848 ms
+BRISK descriptor extraction in 2.08284 ms
+AKAZE detector with n= 1327 keypoints in 64.7273 ms
+BRISK descriptor extraction in 2.05016 ms
+(KNN) with n=166 matches in 0.751033 ms
+Keypoints removed = 40
+No. of Key Point Matches= 126
+Total Time=231.779 ms
 ----------------
 32
-AKAZE detector with n= 1351 keypoints in 70.6325 ms
-BRIEF descriptor extraction in 0.401479 ms
-AKAZE detector with n= 1327 keypoints in 56.8553 ms
-BRIEF descriptor extraction in 0.403878 ms
-(KNN) with n=50 matches in 0.080054 ms
-Keypoints removed = 16
+AKAZE detector with n= 1351 keypoints in 82.6915 ms
+BRIEF descriptor extraction in 1.15403 ms
+AKAZE detector with n= 1327 keypoints in 63.0648 ms
+BRIEF descriptor extraction in 0.707563 ms
+(KNN) with n=166 matches in 0.442593 ms
+Keypoints removed = 58
+No. of Key Point Matches= 108
+Total Time=160.151 ms
 ----------------
 33
-AKAZE detector with n= 1351 keypoints in 68.7305 ms
-ORB descriptor extraction in 8.11079 ms
-AKAZE detector with n= 1327 keypoints in 58.1224 ms
-ORB descriptor extraction in 7.99127 ms
-(KNN) with n=50 matches in 0.095391 ms
-Keypoints removed = 25
+AKAZE detector with n= 1351 keypoints in 76.5749 ms
+ORB descriptor extraction in 8.91339 ms
+AKAZE detector with n= 1327 keypoints in 71.8 ms
+ORB descriptor extraction in 8.71683 ms
+(KNN) with n=166 matches in 0.430552 ms
+Keypoints removed = 64
+No. of Key Point Matches= 102
+Total Time=178.226 ms
 ----------------
 34
-AKAZE detector with n= 1351 keypoints in 68.4197 ms
-FREAK descriptor extraction in 34.2228 ms
-AKAZE detector with n= 1327 keypoints in 58.6271 ms
-FREAK descriptor extraction in 34.1205 ms
-(KNN) with n=50 matches in 0.121572 ms
-Keypoints removed = 20
+AKAZE detector with n= 1351 keypoints in 74.5429 ms
+FREAK descriptor extraction in 36.0845 ms
+AKAZE detector with n= 1327 keypoints in 61.9725 ms
+FREAK descriptor extraction in 37.0377 ms
+(KNN) with n=166 matches in 0.726442 ms
+Keypoints removed = 62
+No. of Key Point Matches= 104
+Total Time=223.521 ms
 ----------------
 35
-AKAZE detector with n= 1351 keypoints in 74.4498 ms
-AKAZE descriptor extraction in 46.8571 ms
-AKAZE detector with n= 1327 keypoints in 59.0463 ms
-AKAZE descriptor extraction in 49.1912 ms
-(KNN) with n=50 matches in 0.110819 ms
-Keypoints removed = 17
+AKAZE detector with n= 1351 keypoints in 73.9961 ms
+AKAZE descriptor extraction in 64.7385 ms
+AKAZE detector with n= 1327 keypoints in 76.1156 ms
+AKAZE descriptor extraction in 52.2506 ms
+(KNN) with n=166 matches in 0.724191 ms
+Keypoints removed = 38
+No. of Key Point Matches= 128
+Total Time=279.648 ms
 ----------------
 36
-AKAZE detector with n= 1351 keypoints in 68.6365 ms
-SIFT descriptor extraction in 17.192 ms
-AKAZE detector with n= 1327 keypoints in 54.0241 ms
-SIFT descriptor extraction in 17.1495 ms
-(KNN) with n=50 matches in 0.083386 ms
-Keypoints removed = 15
+AKAZE detector with n= 1351 keypoints in 76.8805 ms
+SIFT descriptor extraction in 33.1233 ms
+AKAZE detector with n= 1327 keypoints in 83.4167 ms
+SIFT descriptor extraction in 22.8905 ms
+(KNN) with n=166 matches in 0.359623 ms
+Keypoints removed = 32
+No. of Key Point Matches= 134
+Total Time=230.366 ms
 ----------------
 37
-SIFT detector with n= 1438 keypoints in 189.953 ms
-BRISK descriptor extraction in 0.724415 ms
-SIFT detector with n= 1371 keypoints in 86.5816 ms
-BRISK descriptor extraction in 0.743415 ms
-(KNN) with n=50 matches in 0.156242 ms
-Keypoints removed = 33
+SIFT detector with n= 1438 keypoints in 134.238 ms
+BRISK descriptor extraction in 2.1802 ms
+SIFT detector with n= 1371 keypoints in 88.8763 ms
+BRISK descriptor extraction in 2.02568 ms
+(KNN) with n=137 matches in 0.721739 ms
+Keypoints removed = 80
+No. of Key Point Matches= 57
+Total Time=309.806 ms
 ----------------
 38
-SIFT detector with n= 1438 keypoints in 119.365 ms
-BRIEF descriptor extraction in 0.522818 ms
-SIFT detector with n= 1371 keypoints in 92.1828 ms
-BRIEF descriptor extraction in 0.565864 ms
-(KNN) with n=50 matches in 0.146689 ms
-Keypoints removed = 31
+SIFT detector with n= 1438 keypoints in 128.887 ms
+BRIEF descriptor extraction in 1.21737 ms
+SIFT detector with n= 1371 keypoints in 99.8535 ms
+BRIEF descriptor extraction in 0.678383 ms
+(KNN) with n=138 matches in 0.374326 ms
+Keypoints removed = 75
+No. of Key Point Matches= 63
+Total Time=244.699 ms
 ----------------
 39
-SIFT detector with n= 1438 keypoints in 112.342 ms
+SIFT detector with n= 1438 keypoints in 117.188 ms
 terminate called after throwing an instance of 'cv::Exception'
-  what():  OpenCV(4.5.0-dev) /home/an/FOEASU-Linux/opencv-master/modules/core/src/alloc.cpp:73: error: (-4:Insufficient memory) Failed to allocate 65763706112 bytes in function 'OutOfMemoryError'
+  what():  OpenCV(4.5.0-dev) /home/an/FOEASU-Linux/opencv-master/modules/core/src/alloc.cpp:73: error: (-4:Insufficient memory) Failed to allocate 70166064384 bytes in function 'OutOfMemoryError'
 
 Aborted (core dumped)
 ----------------
 40
-SIFT detector with n= 1438 keypoints in 144.015 ms
-FREAK descriptor extraction in 40.2199 ms
-SIFT detector with n= 1371 keypoints in 109.102 ms
-FREAK descriptor extraction in 33.998 ms
-(KNN) with n=50 matches in 1.68483 ms
-Keypoints removed = 33
+SIFT detector with n= 1438 keypoints in 185.425 ms
+FREAK descriptor extraction in 37.4287 ms
+SIFT detector with n= 1371 keypoints in 93.928 ms
+FREAK descriptor extraction in 36.202 ms
+(KNN) with n=137 matches in 0.634147 ms
+Keypoints removed = 79
+No. of Key Point Matches= 58
+Total Time=489.327 ms
 ----------------
 41
-SIFT detector with n= 1438 keypoints in 125.767 ms
+SIFT detector with n= 1438 keypoints in 120.011 ms
 terminate called after throwing an instance of 'cv::Exception'
   what():  OpenCV(4.5.0-dev) /home/an/FOEASU-Linux/opencv-master/modules/features2d/src/kaze/AKAZEFeatures.cpp:1192: error: (-215:Assertion failed) 0 <= kpts[i].class_id && kpts[i].class_id < static_cast<int>(evolution_.size()) in function 'Compute_Descriptors'
 
 Aborted (core dumped)
 ----------------
 42
-SIFT detector with n= 1438 keypoints in 119.946 ms
-SIFT descriptor extraction in 63.4152 ms
-SIFT detector with n= 1371 keypoints in 88.2391 ms
-SIFT descriptor extraction in 65.0601 ms
-(KNN) with n=50 matches in 0.100111 ms
-Keypoints removed = 13
+SIFT detector with n= 1438 keypoints in 119.723 ms
+SIFT descriptor extraction in 80.6298 ms
+SIFT detector with n= 1371 keypoints in 97.5162 ms
+SIFT descriptor extraction in 69.2723 ms
+(KNN) with n=138 matches in 0.323693 ms
+Keypoints removed = 56
+No. of Key Point Matches= 82
+Total Time=382.408 ms

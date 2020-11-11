@@ -32,3 +32,16 @@ See the classroom instruction and code comments for more details on each of thes
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
 4. Run it: `./2D_feature_tracking`.
+
+
+## Statistical Analysis 
+
+Using stats script.py file to automate all the possible combination of detector and descriptor pairs.
+Using KNN approach with (k=2) and filtering ratio = 0.8
+
+| Approach no. | Detector + Descriptor | Total Keypoints | Total Matches | Time(ms) |
+|------------- | ------------- | ------------- | ------------- | ------------- |
+| 1 | Shi-Tomasi + BRISK | 1370 | 84 | 172.205 ms |
+| 1 | Shi-Tomasi + BRISK | 1370 | 84 | 172.205 ms |
+
+
